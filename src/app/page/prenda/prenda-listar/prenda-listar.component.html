@@ -1,0 +1,70 @@
+<div class="container">
+  <div style=" text-align: center;">
+    <h1>Lista de prendas</h1>
+  </div>
+  <app-prenda-buscar></app-prenda-buscar>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id </th>
+      <td mat-cell *matCellDef="let element"> {{element.idPrenda}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="prenda">
+      <th mat-header-cell *matHeaderCellDef> Tipo prenda </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombrePrenda}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="color">
+      <th mat-header-cell *matHeaderCellDef> Color prenda </th>
+      <td mat-cell *matCellDef="let element"> {{element.colorPrenda}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="diseno">
+      <th mat-header-cell *matHeaderCellDef> Diseño prenda </th>
+      <td mat-cell *matCellDef="let element"> {{element.disenioPrenda}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tienda">
+      <th mat-header-cell *matHeaderCellDef> Tienda </th>
+      <td mat-cell *matCellDef="let element"> {{element.tienda.nombreTienda}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="marca">
+      <th mat-header-cell *matHeaderCellDef> Marca </th>
+      <td mat-cell *matCellDef="let element"> {{element.marca.nombreMarca}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="talla">
+      <th mat-header-cell *matHeaderCellDef> Talla </th>
+      <td mat-cell *matCellDef="let element"> {{element.talla.letraTalla}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary"
+          [routerLink]="['edicion', element?.idPrenda]">Actualizar</button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="accion2">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="warn" (click)="confirmar(element.idPrenda)">Eliminar</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <div class="example-button-container">
+    <button mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon"
+      routerLink="/prendas/nuevo">
+      <mat-icon>plus_one</mat-icon>
+    </button>
+  </div>
+</div>
