@@ -1,0 +1,65 @@
+<div class="container">
+
+  <h1>Prenda</h1>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Nombre</mat-label>
+    <input matInput required placeholder="prenda" [(ngModel)]="prenda.nombrePrenda">
+
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Color</mat-label>
+    <input matInput required placeholder="color" [(ngModel)]="prenda.colorPrenda">
+
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Diseño</mat-label>
+    <input matInput required placeholder="diseno" [(ngModel)]="prenda.disenioPrenda">
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Seleccione una Tienda</mat-label>
+    <mat-select [(value)]="idTiendaSeleccionada" required>
+        <mat-option *ngFor="let t of listaTiendas" [value]="t.idTienda">
+            {{t.nombreTienda}}
+        </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<br>
+
+<mat-form-field appearance="fill">
+  <mat-label>Seleccione una Marca</mat-label>
+  <mat-select [(value)]="idMarcaSeleccionada" required>
+      <mat-option *ngFor="let m of listaMarcas" [value]="m.idMarca">
+          {{m.nombreMarca}}
+      </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+
+<mat-form-field appearance="fill">
+  <mat-label>Seleccione una Talla</mat-label>
+  <mat-select [(value)]="idTallaSeleccionada" required>
+      <mat-option *ngFor="let ta of listaTallas" [value]="ta.idTalla">
+          {{ta.letraTalla}}
+      </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<br>
+
+  <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+  <button mat-raised-button color="warn" routerLink="/prendas">Cancelar</button>
+  <p>{{mensaje}}</p>
+
+</div>
