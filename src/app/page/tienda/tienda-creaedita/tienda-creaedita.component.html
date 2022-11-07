@@ -1,0 +1,33 @@
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput required placeholder="Nombre" [(ngModel)]="tienda.nombreTienda">
+  
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Direccion</mat-label>
+        <input matInput required placeholder="Direccion" [(ngModel)]="tienda.direccionTienda">
+    
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Correo</mat-label>
+        <input matInput required placeholder="Correo" [(ngModel)]="tienda.emailTienda">
+    
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Telefono</mat-label>
+        <input matInput required placeholder="Telefono" [(ngModel)]="tienda.telefonoTienda">
+    
+      </mat-form-field>
+
+  
+  
+    <br>
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/tiendas">Cancelar</button>
+    <p>{{mensaje}}</p>
+  
+  </div>
