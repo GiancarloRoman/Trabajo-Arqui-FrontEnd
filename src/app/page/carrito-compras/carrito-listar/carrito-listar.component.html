@@ -1,0 +1,48 @@
+<div class="container">
+    <div style=" text-align: center;">
+      <h1>Lista de Carrito de Compras</h1>
+    </div>
+    <app-carrito-buscar></app-carrito-buscar>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> id </th>
+        <td mat-cell *matCellDef="let element"> {{element.idCarrito_Compras}} </td>
+      </ng-container>
+  
+  
+      <ng-container matColumnDef="cantidad">
+        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+        <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="prenda">
+        <th mat-header-cell *matHeaderCellDef> Prenda </th>
+        <td mat-cell *matCellDef="let element"> {{element.prenda.nombrePrenda}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary"
+            [routerLink]="['edicion', element?.idCarrito_Compras]">Actualizar</button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="accion2">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="warn" (click)="confirmar(element.idCarrito_Compras)">Eliminar</button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <div class="example-button-container">
+      <button mat-mini-fab color="primary" aria-label="Example icon button with a plus one icon"
+        routerLink="/carrito_compras/nuevo">
+        <mat-icon>plus_one</mat-icon>
+      </button>
+    </div>
+  </div>
