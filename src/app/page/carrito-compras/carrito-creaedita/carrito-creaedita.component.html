@@ -1,0 +1,28 @@
+<div class="container">
+
+    <h1>Carrito de Compras</h1>
+  
+    <mat-form-field appearance="fill">
+        <mat-label>Seleccione una Prenda</mat-label>
+        <mat-select [(value)]="idPrendaSeleccionada" required>
+            <mat-option *ngFor="let p of listaPrendas" [value]="p.idPrenda">
+                {{p.nombrePrenda}}
+            </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Cantidad</mat-label>
+      <input matInput required placeholder="cantidad" [(ngModel)]="carrito.cantidad">
+  
+    </mat-form-field>
+  
+   <br>
+
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/carrito_compras">Cancelar</button>
+    <p>{{mensaje}}</p>
+  
+  </div>
