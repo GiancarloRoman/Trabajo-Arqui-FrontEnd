@@ -1,0 +1,70 @@
+<div class="container">
+
+    <h1>Comprobantes de pago</h1>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Tipo de comprobante</mat-label>
+      <input matInput required placeholder="tipo" [(ngModel)]="comprobante.tipoComprobante">
+  
+    </mat-form-field>
+  
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Monto total</mat-label>
+      <input matInput required placeholder="montototal" [(ngModel)]="comprobante.montototal">
+  
+    </mat-form-field>
+  
+    <br>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Precio unitario</mat-label>
+      <input matInput required placeholder="precioc/u" [(ngModel)]="comprobante.preciounitario">
+    </mat-form-field>
+  
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Razón social</mat-label>
+      <input matInput required placeholder="razonsocial" [(ngModel)]="comprobante.razonsocial">
+    </mat-form-field>
+  
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de venta</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="fechaSeleccionada" [max]="maxFecha">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  
+  <br>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Seleccione un Carrito de compras</mat-label>
+    <mat-select [(value)]="idCarritoComprasSeleccionado" required>
+        <mat-option *ngFor="let ca of listaCarritoCompras" [value]="ca.idCarrito_Compras">
+            {{ca.idCarrito_Compras}}
+        </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <br>
+  
+  <mat-form-field appearance="fill">
+    <mat-label>Seleccione un Cliente</mat-label>
+    <mat-select [(value)]="idClienteSeleccionado" required>
+        <mat-option *ngFor="let c of listaClientes" [value]="c.idCliente">
+            {{c.nombreCliente}}
+        </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <br>
+  
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/prendas">Cancelar</button>
+    <p>{{mensaje}}</p>
+  
+  </div>
