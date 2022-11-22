@@ -5,3 +5,5 @@ export class Carrito_Compras{
     cantidad:number=0;
     prenda:Prenda = new Prenda();
 }
+
+
