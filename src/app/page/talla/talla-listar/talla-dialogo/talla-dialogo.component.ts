@@ -19,3 +19,6 @@ export class TallaDialogoComponent implements OnInit {
     this.dialogRef.close();
   }
 }
+
+
+
